@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
 use ApiPlatform\Core\Annotation\ApiFilter;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ApiResource(
@@ -35,6 +36,11 @@ class Sentence
     /**
      * @ORM\Column(type="string", length=77)
      * @Groups({"sentence:write"})
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *     max=77,
+     *     maxMessage="Maximum sentence length is 77 character"
+     * )
      */
     private $data;
 
