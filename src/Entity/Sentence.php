@@ -6,12 +6,17 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\SentenceRepository;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
+use ApiPlatform\Core\Annotation\ApiFilter;
 
 /**
  * @ApiResource(
  *     collectionOperations={"get", "post"},
- *     itemOperations={}   
+ *     itemOperations={"get"},
+ *     denormalizationContext={"groups"={"sentence:write"}, "swagger_definition_name"="Write"}
  * )
+ * @ApiFilter(OrderFilter::class, properties={"createdAt": "DESC"})
  * @ORM\Entity(repositoryClass=SentenceRepository::class)
  */
 class Sentence
@@ -29,6 +34,7 @@ class Sentence
 
     /**
      * @ORM\Column(type="string", length=77)
+     * @Groups({"sentence:write"})
      */
     private $data;
 
