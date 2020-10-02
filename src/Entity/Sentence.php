@@ -42,7 +42,7 @@ class Sentence
      *     maxMessage="Maximum sentence length is 77 character"
      * )
      */
-    private $data;
+    private $content;
 
     /**
      * @ORM\Column(type="datetime")
@@ -54,14 +54,14 @@ class Sentence
         return $this->id;
     }
 
-    public function getData(): ?string
+    public function getContent(): ?string
     {
-        return $this->data;
+        return $this->content;
     }
 
-    public function setData(string $data): self
+    public function setContent(string $content): self
     {
-        $this->data = $data;
+        $this->content = $content;
 
         return $this;
     }
