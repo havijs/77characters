@@ -13,6 +13,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ApiResource(
+ *     formats={"json"},
  *     collectionOperations={"get", "post"},
  *     itemOperations={"get"},
  *     denormalizationContext={"groups"={"sentence:write"}, "swagger_definition_name"="Write"}

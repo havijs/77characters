@@ -1,14 +1,10 @@
 import './styles/app.css';
-import React from 'react';
+import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
-import CreateSentencePanel from './components/createSentencePanel';
+import MainPanel from './components/mainPanel';
 
 const App = () => {
-    return (
-        <div>
-            <CreateSentencePanel></CreateSentencePanel>
-        </div>
-    );
+    return (<MainPanel></MainPanel>);
 }
 
 

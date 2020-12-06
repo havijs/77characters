@@ -1,5 +1,5 @@
 import React from 'react';
 
-export default () => {
-    return <input type="text"></input>;    
+export default (props) => {
+    return <input type="text" value={props.value} onChange={props.onChange}></input>;    
 }
